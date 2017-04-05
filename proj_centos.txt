@@ -1,0 +1,8 @@
+rsync -avzuP publicdata.opensciencedatacloud.org::ark:/31807/osdc-c1c763e4/ ./
+
+tar -xvf *.tar.gz
+
+python msdtocsv.py MillionSong.csv ./ artist_id artist_name title release track_id duration year loudness tempo danceability song_hotttnesss artist_hotttnesss artist_familiarity artist_location similar_artists
+
+hadoop fs -copyFromLocal MillionSong.csv /user/moham1f/project/
+
